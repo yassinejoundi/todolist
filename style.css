@@ -8,12 +8,10 @@ body {
     font-weight: bold;
 }
 
-.home {
-    margin-top: 20px;
-}
-
 h1 {
     color: #ffff;
+    margin: 0;
+    padding: 20px;
 }
 .add {
     color: #ffff;

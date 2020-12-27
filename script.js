@@ -1,4 +1,5 @@
-let list = []
+document.querySelector('#new').focus()
+
 function AddNew() {
     document.querySelector(".vide").style.display = "none"
     let todo = document.querySelector('#new').value
@@ -32,6 +33,7 @@ function AddNew() {
     } else {
         document.querySelector(".vide").style.display = "block"
     }
+    document.querySelector('#new').focus()
 }
 
 document.querySelector("#add").addEventListener("click", AddNew)
