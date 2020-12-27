@@ -1,0 +1,87 @@
+body {
+    text-align: center;
+    min-height: 100vh;
+    background-color: #FF6347;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+    font-weight: bold;
+}
+
+.home {
+    margin-top: 20px;
+}
+
+h1 {
+    color: #ffff;
+}
+.add {
+    color: #ffff;
+    background-color:#FF6347;
+    border: hidden;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+input {
+    width: calc(100vw / 2);
+    height: 30px;
+    border: 2px solid;
+    border-color: #FF6347;
+}
+
+input:focus {
+    outline: none;
+}
+.DivParent {
+    display: flex;
+    margin: 20px auto;
+    width: calc(100vw / 2);
+    text-align: start;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffff;
+}
+
+.text {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 20px;
+    width: calc(100vw / 2);
+    padding: 0;
+    margin-left: 20px;
+}
+
+.todos {
+    text-align: center !important;
+    width: calc(100vw/2);
+    margin-top: 40px;
+    color: #FF6347;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#delete {
+    border: none;
+    background-color: transparent;
+    color: #FF6347;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0 10px;
+    margin-right: 10px;
+}
+
+#delete:focus {
+    outline: none;
+}
+
+.vide{
+    display: none;
+    padding: 10px 0;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
