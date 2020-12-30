@@ -1,40 +1,67 @@
-document.querySelector('#new').focus()
+let todos = []
+
+function createTodo(arg) {
+    let Div = document.createElement("div")
+    let text = document.createElement("p")
+    let button = document.createElement("button") 
+
+    text.innerHTML = arg
+    button.innerHTML = "X"
+    button.id = "delete"
+    Div.id = "Todo"
+    Div.className = "DivParent"
+    text.className = "text"
+
+    Div.appendChild(text)
+    Div.appendChild(button)
+    document.querySelector(".todos").appendChild(Div)
+}
+
+function deleteTodo() {
+    let del = false
+    document.querySelectorAll("#delete").forEach((selector, index)=>{
+        selector.addEventListener("click", ()=>{
+            if (!del) {
+                selector.parentNode.remove()
+                todos.splice(index, 1)
+                console.log(todos);
+                localStorage.removeItem('todos');
+                localStorage.setItem('todos', JSON.stringify(todos)) 
+            }
+        })
+    })
+}
 
 function AddNew() {
     document.querySelector(".vide").style.display = "none"
     let todo = document.querySelector('#new').value
     if (todo.trim() != "") {
-        let Div = document.createElement("div")
-        let text = document.createElement("p")
-        let button = document.createElement("button")
+        createTodo(todo.trim())
+        todos.push(todo.trim())
 
-        text.innerHTML = todo.trim()
-        button.innerHTML = "X"
-        button.id = "delete"
-        Div.id = "Todo"
-        Div.className = "DivParent"
-        text.className = "text"
-
-        Div.appendChild(text)
-        Div.appendChild(button)
-        document.querySelector(".todos").appendChild(Div)
+        localStorage.removeItem('todos');
+        localStorage.setItem('todos', JSON.stringify(todos))
 
         document.querySelector('#new').value = ""
-        exist = true
 
-        document.querySelectorAll("#delete").forEach((selector)=>{
-            selector.addEventListener("click", ()=>{
-                let index = [].indexOf.call(document.querySelectorAll("#delete"), selector)
-                console.log(index);
-                document.querySelectorAll("#Todo")[index].remove()
-            })
-        })
+        deleteTodo()
 
     } else {
         document.querySelector(".vide").style.display = "block"
     }
     document.querySelector('#new').focus()
 }
+
+if (localStorage.getItem('todos') != '') {
+    todos = JSON.parse(localStorage.getItem('todos'))
+    todos.forEach((todo)=>{
+        createTodo(todo)
+    })
+    deleteTodo()
+}
+
+
+document.querySelector('#new').focus()
 
 document.querySelector("#add").addEventListener("click", AddNew)
 
